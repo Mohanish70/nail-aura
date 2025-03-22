@@ -1,0 +1,53 @@
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    background-color: #ffe6f0;
+    border-bottom: 2px solid #ffb3c6;
+  }
+  
+  .navbar-logo a {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: #e91e63;
+    text-decoration: none;
+  }
+  
+  .navbar-links {
+    list-style: none;
+    display: flex;
+    gap: 1rem;
+  }
+  
+  .navbar-links li a {
+    text-decoration: none;
+    color: #333;
+    font-weight: 500;
+  }
+  
+  .logout-btn {
+    background-color: #e91e63;
+    color: white;
+    padding: 6px 12px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+  }
+  .navbar-logo {
+    display: flex;
+    align-items: center;
+    gap: 10px; /* Space between logo and brand name */
+  }
+  
+  .logo {
+    height: 40px; /* Adjust logo size as needed */
+    width: auto;
+  }
+  
+  .brand-name {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: #333;
+  }
+  

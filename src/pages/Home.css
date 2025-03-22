@@ -1,0 +1,217 @@
+/* Home.css */
+
+/* Global Styles */
+body {
+  font-family: 'Poppins', sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+.home-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+/* Header Section */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  background-color: #fff;
+}
+
+.logo-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.logo {
+  height: 50px;
+  width: auto;
+  max-width: 100%; /* Ensures the logo scales properly */
+}
+
+.navbar ul {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+}
+
+.navbar ul li a {
+  text-decoration: none;
+  color: #333;
+  font-weight: bold;
+}
+
+.navbar ul li a:hover {
+  color: #007BFF;
+}
+
+/* Hero Section */
+.hero-section {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  padding: 2rem 0;
+  background: linear-gradient(to right, #fce4ec, #f8bbd0);
+  border-radius: 12px;
+}
+
+.hero-text {
+  flex: 1;
+  padding: 1rem;
+}
+
+.hero-text h1 {
+  font-size: 3rem;
+}
+
+.brand-name {
+  color: #e91e63;
+}
+
+.hero-buttons {
+  margin-top: 1rem;
+}
+
+.btn, .btn-outline {
+  padding: 0.75rem 1.5rem;
+  margin-right: 1rem;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.btn {
+  background-color: #e91e63;
+  color: white;
+}
+
+.btn-outline {
+  border: 2px solid #e91e63;
+  color: #e91e63;
+}
+
+.hero-image img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 16px;
+}
+
+/* Features Section */
+.features-section {
+  text-align: center;
+  margin-top: 4rem;
+}
+
+.features {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.feature {
+  flex: 1;
+  max-width: 280px;
+  padding: 1rem;
+}
+
+.feature img {
+  width: 60px;
+  height: auto;
+}
+
+.feature h3 {
+  font-size: 1.5rem;
+  margin-top: 10px;
+}
+
+/* Collections Section */
+.collections-section {
+  margin-top: 4rem;
+}
+
+.collections {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.collection-card {
+  width: 220px;
+  text-align: center;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.collection-card img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+}
+
+.collection-card h4 {
+  margin-top: 10px;
+}
+
+.collection-card a {
+  text-decoration: none;
+  color: #007BFF;
+  font-weight: bold;
+  margin-top: 10px;
+  display: block;
+}
+
+/* Testimonials Section */
+.testimonials-section {
+  margin-top: 4rem;
+}
+
+.testimonials {
+  display: flex;
+  gap: 2rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.testimonial {
+  max-width: 300px;
+  background: #fff3f5;
+  padding: 1rem;
+  border-left: 4px solid #e91e63;
+  border-radius: 8px;
+}
+
+.testimonial p {
+  font-style: italic;
+}
+
+/* Call to Action Section */
+.cta-section {
+  margin: 3rem 0;
+  text-align: center;
+}
+
+.cta-section .btn-big {
+  padding: 1rem 2rem;
+  background-color: #e91e63;
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  border-radius: 12px;
+}
+
+/* Footer Section */
+.home-footer {
+  text-align: center;
+  padding: 1rem 0;
+  margin-top: 2rem;
+  color: #888;
+}

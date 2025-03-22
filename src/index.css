@@ -1,0 +1,124 @@
+body {
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background: #fff8fb;
+  color: #333;
+}
+
+.app-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+nav.navbar {
+  background: #ffb6c1;
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.navbar a {
+  margin-left: 1rem;
+  color: #fff;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.footer {
+  background: #fce4ec;
+  text-align: center;
+  padding: 1rem;
+  margin-top: auto;
+}
+
+main {
+  padding: 2rem;
+}
+
+.product-card {
+  border: 1px solid #f1c9d3;
+  padding: 1rem;
+  border-radius: 10px;
+  text-align: center;
+  background: #fff;
+  transition: 0.3s ease;
+}
+
+.product-card:hover {
+  transform: scale(1.02);
+  box-shadow: 0 4px 12px rgba(255, 182, 193, 0.2);
+}
+
+.product-card img {
+  width: 100%;
+  max-height: 180px;
+  object-fit: contain;
+  border-radius: 10px;
+}
+
+button {
+  background: #e91e63;
+  color: white;
+  padding: 0.5rem 1rem;
+  border: none;
+  margin-top: 0.5rem;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #c2185b;
+}
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 1.5rem;
+}
+.cart-item {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1rem;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 1rem;
+}
+.camera-customizer {
+  text-align: center;
+  position: relative;
+}
+
+.webcam {
+  width: 100%;
+  max-width: 500px;
+  border-radius: 15px;
+}
+
+.design-selector {
+  margin-top: 1rem;
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.design-thumb {
+  width: 60px;
+  cursor: pointer;
+  border: 2px solid transparent;
+  border-radius: 10px;
+}
+
+.design-thumb.selected {
+  border-color: #e91e63;
+}
+
+.nail-overlay {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 80px;
+  transform: translate(-50%, -50%);
+  opacity: 0.8;
+  pointer-events: none;
+}
