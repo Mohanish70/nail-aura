@@ -1,8 +1,9 @@
-import * as handTrack from 'handtrackjs'; // Import handtrack.js
+import handTrack from 'handtrackjs'; // Import handtrack.js
 import React, { useEffect, useRef, useState } from 'react';
 import Webcam from 'react-webcam';
-import './CameraCustomizer.css';
+import './CameraCustomizer.css'; // Ensure you have the CSS file for styling
 
+// Nail Designs Data
 const nailDesigns = [
   { src: '/images/1.jpg', name: 'Classic' },
   { src: '/images/2.jpg', name: 'Glam' },
@@ -15,7 +16,7 @@ const CameraCustomizer = () => {
   const [model, setModel] = useState(null);
   const [hands, setHands] = useState([]);
   const [designPosition, setDesignPosition] = useState({ top: 0, left: 0, size: 100 });
-  const [color, setColor] = useState('#FF0066'); // Default color (can be changed by user)
+  const [color, setColor] = useState('#FF0066'); // Default color
   const [loading, setLoading] = useState(true);
 
   // Load Handtrack.js model
@@ -42,7 +43,7 @@ const CameraCustomizer = () => {
     return () => clearInterval(interval);
   }, [model]);
 
-  // Adjust the position of the nail design based on the detected hands
+  // Adjust the position of the nail design based on detected hands
   const handleNailDesignPlacement = () => {
     if (hands.length > 0) {
       const hand = hands[0]; // Assuming the first detected hand is the relevant one
@@ -75,6 +76,7 @@ const CameraCustomizer = () => {
   return (
     <div className="camera-customizer">
       <h2>Try Nails Live!</h2>
+      
       {loading ? (
         <div className="loading-overlay">Loading Hand Detection...</div>
       ) : (
@@ -83,6 +85,9 @@ const CameraCustomizer = () => {
             ref={webcamRef}
             className="webcam"
             mirrored
+            videoConstraints={{
+              facingMode: 'environment', // Use the back camera (environment camera)
+            }}
             style={{
               width: '100%',
               height: 'auto',
@@ -123,7 +128,7 @@ const CameraCustomizer = () => {
               transform: 'translate(-50%, -50%)',
               width: `${designPosition.size}px`,
               zIndex: 10,
-              filter: `hue-rotate(${color}deg)`,
+              filter: `hue-rotate(${color}deg)`, // Apply color filter to the design
             }}
           />
         </>
