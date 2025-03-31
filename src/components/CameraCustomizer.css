@@ -1,0 +1,63 @@
+.camera-customizer {
+  text-align: center;
+  position: relative;
+}
+
+.webcam {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+  border: 2px solid #eee;
+}
+
+.design-selector {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.design-thumb {
+  width: 60px;
+  height: 60px;
+  margin: 0 10px;
+  cursor: pointer;
+  border-radius: 8px;
+  border: 2px solid transparent;
+}
+
+.design-thumb.selected {
+  border: 2px solid #FF0066;
+}
+
+.color-picker {
+  margin-top: 20px;
+}
+
+.color-picker input {
+  width: 50px;
+  height: 50px;
+  border: none;
+  cursor: pointer;
+}
+
+.nail-overlay {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 10;
+  border-radius: 5px;
+  transition: all 0.3s ease-in-out;
+}
+
+.loading-overlay {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 24px;
+  color: #fff;
+  background: rgba(0, 0, 0, 0.5);
+  padding: 10px;
+  border-radius: 5px;
+}

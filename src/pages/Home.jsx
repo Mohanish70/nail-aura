@@ -25,7 +25,10 @@ const Home = () => {
       {/* Hero Section */}
       <section className="hero-section">
         <div className="hero-text">
-          <h1>Welcome to <span className="brand-name">Nail Aura</span></h1> {/* No need to repeat the brand name in this section */}
+          <h1>Welcome to <span className="brand-name">Nail Aura</span></h1>
+          <p>Your one-stop destination for custom press-on nails.</p>
+          <p>Get trendy, high-quality nails delivered to your doorstep!</p>
+
           <p>Explore AI-powered custom press-on nails tailored just for you.</p>
           <div className="hero-buttons">
             <Link to="/shop" className="btn">Shop Now</Link>
@@ -39,6 +42,7 @@ const Home = () => {
 
       {/* Features Section */}
       <section className="features-section">
+
         <h2>Why Nail Aura?</h2>
         <div className="features">
           <div className="feature">
@@ -55,7 +59,9 @@ const Home = () => {
             <img src={deliveryImage} alt="Fast Delivery" />
             <h3>🚚 48-Hour Delivery</h3>
             <p>Get your custom nails shipped fast — across all of India!</p>
+            
           </div>
+            
         </div>
       </section>
 
@@ -108,7 +114,8 @@ const Home = () => {
 
       {/* Footer Section */}
       <footer className="home-footer">
-        <p>© 2025 Nail Aura. All rights reserved.</p>
+        
+
       </footer>
     </div>
   );

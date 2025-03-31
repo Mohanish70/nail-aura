@@ -1,26 +1,43 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
+import './AuthForm.css'; // Importing the CSS file for styling
 
 const Login = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const { login } = useAuth();
+  const { login, error } = useAuth();
   const navigate = useNavigate();
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    login(email, password);
-    navigate('/');
+    login(email, password)
+      .then(() => navigate('/'))
+      .catch((err) => alert(err.message));
   };
 
   return (
-    <form onSubmit={handleSubmit} style={{ padding: '2rem' }}>
-      <h2>Login</h2>
-      <input value={email} onChange={e => setEmail(e.target.value)} placeholder="Email" />
-      <input type="password" value={password} onChange={e => setPassword(e.target.value)} placeholder="Password" />
-      <button type="submit">Login</button>
-    </form>
+    <div className="auth-container">
+      <h2>Login to Nail Aura</h2>
+      <form onSubmit={handleSubmit} className="auth-form">
+        <input
+          type="email"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+          placeholder="Email"
+          required
+        />
+        <input
+          type="password"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+          placeholder="Password"
+          required
+        />
+        {error && <p className="error-message">{error}</p>}
+        <button type="submit" className="auth-button">Login</button>
+      </form>
+    </div>
   );
 };
 
