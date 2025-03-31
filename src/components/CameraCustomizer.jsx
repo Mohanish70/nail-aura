@@ -18,6 +18,7 @@ const CameraCustomizer = () => {
   const [designPosition, setDesignPosition] = useState({ top: 0, left: 0, size: 100 });
   const [color, setColor] = useState('#FF0066'); // Default color
   const [loading, setLoading] = useState(true);
+  const [cameraError, setCameraError] = useState(null); // State for handling camera errors
 
   // Load Handtrack.js model
   useEffect(() => {
@@ -73,27 +74,47 @@ const CameraCustomizer = () => {
     setSelectedDesign(design);
   };
 
+  // Define video constraints for back camera
+  const videoConstraints = {
+    facingMode: 'environment', // Use the back camera (environment camera)
+    width: { ideal: 1280 },
+    height: { ideal: 720 },
+  };
+
+  // Handle camera error (in case access is denied or device does not support the back camera)
+  const handleCameraError = (error) => {
+    setCameraError(error.message);
+  };
+
   return (
     <div className="camera-customizer">
       <h2>Try Nails Live!</h2>
-      
+
       {loading ? (
         <div className="loading-overlay">Loading Hand Detection...</div>
       ) : (
         <>
+          {/* Webcam component with video constraints */}
           <Webcam
             ref={webcamRef}
             className="webcam"
             mirrored
-            videoConstraints={{
-              facingMode: 'environment', // Use the back camera (environment camera)
-            }}
+            videoConstraints={videoConstraints} // Ensure we're using the back camera
+            onError={handleCameraError} // Handle errors, e.g., camera access
             style={{
               width: '100%',
               height: 'auto',
               borderRadius: '10px',
             }}
           />
+
+          {/* Show error message if camera fails */}
+          {cameraError && (
+            <div className="camera-error-message">
+              <p>Unable to access back camera: {cameraError}</p>
+              <p>Trying front camera...</p>
+            </div>
+          )}
 
           {/* Design Thumbnails */}
           <div className="design-selector">

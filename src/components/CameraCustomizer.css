@@ -1,63 +1,82 @@
+/* Main container styling */
 .camera-customizer {
-  text-align: center;
-  position: relative;
+  position: relative;         /* Allow absolute positioning of child elements like overlay */
+  text-align: center;         /* Center content inside the container */
+  padding: 20px;              /* Add padding around the content */
 }
 
+/* Webcam styling */
 .webcam {
-  width: 100%;
-  height: auto;
-  border-radius: 10px;
-  border: 2px solid #eee;
+  width: 100%;                /* Ensure the webcam takes full width of the container */
+  height: auto;               /* Maintain aspect ratio */
+  border-radius: 10px;        /* Apply rounded corners */
 }
 
-.design-selector {
-  display: flex;
-  justify-content: center;
-  margin-top: 20px;
-}
-
-.design-thumb {
-  width: 60px;
-  height: 60px;
-  margin: 0 10px;
-  cursor: pointer;
-  border-radius: 8px;
-  border: 2px solid transparent;
-}
-
-.design-thumb.selected {
-  border: 2px solid #FF0066;
-}
-
-.color-picker {
-  margin-top: 20px;
-}
-
-.color-picker input {
-  width: 50px;
-  height: 50px;
-  border: none;
-  cursor: pointer;
-}
-
-.nail-overlay {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  z-index: 10;
-  border-radius: 5px;
-  transition: all 0.3s ease-in-out;
-}
-
+/* Loading overlay style */
 .loading-overlay {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  font-size: 24px;
-  color: #fff;
-  background: rgba(0, 0, 0, 0.5);
-  padding: 10px;
-  border-radius: 5px;
+  position: absolute;         /* Position it on top of the webcam */
+  top: 0;
+  left: 0;
+  width: 100%;                /* Fill the whole parent container */
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);  /* Semi-transparent black background */
+  color: white;               /* White text color */
+  display: flex;              /* Use Flexbox to center the content */
+  justify-content: center;
+  align-items: center;        /* Center the loading text */
+  font-size: 18px;
+  font-weight: bold;          /* Make the text bold */
+}
+
+/* Error message styling */
+.camera-error-message {
+  position: absolute;         /* Position the error message centrally */
+  top: 50%;                    /* Vertically center it */
+  left: 50%;                   /* Horizontally center it */
+  transform: translate(-50%, -50%); /* Translate it to center properly */
+  background-color: rgba(0, 0, 0, 0.7);  /* Semi-transparent background for contrast */
+  color: white;               /* White text */
+  padding: 20px;              /* Add padding for spacing */
+  border-radius: 10px;        /* Round corners of the error box */
+  z-index: 20;                /* Make sure it appears above other elements */
+}
+
+/* Design selection thumbnails */
+.design-selector {
+  display: flex;              /* Use Flexbox to arrange the thumbnails in a row */
+  justify-content: center;    /* Center the thumbnails horizontally */
+  margin-top: 20px;           /* Space out from the webcam */
+}
+
+/* Each design thumbnail */
+.design-thumb {
+  width: 60px;                /* Set width of the thumbnail */
+  height: 60px;               /* Set height of the thumbnail */
+  margin: 0 10px;             /* Space out the thumbnails */
+  border: 2px solid transparent;  /* Default border is transparent */
+  cursor: pointer;           /* Show pointer cursor on hover */
+  border-radius: 10px;        /* Round the corners of the thumbnails */
+}
+
+/* Highlight selected design */
+.design-thumb.selected {
+  border-color: #FF0066;      /* Highlight the selected design with a colored border */
+}
+
+/* Color picker styling */
+.color-picker {
+  margin-top: 20px;           /* Space out from the design thumbnails */
+  text-align: center;         /* Center the color picker */
+}
+
+/* Label styling inside the color picker */
+.color-picker label {
+  font-size: 16px;            /* Set the font size for the label */
+}
+
+/* Nail overlay styling (the design image applied to the webcam feed) */
+.nail-overlay {
+  position: absolute;         /* Position it over the webcam video */
+  transform: translate(-50%, -50%); /* Center the overlay */
+  z-index: 10;                /* Ensure the overlay is above the webcam */
 }
