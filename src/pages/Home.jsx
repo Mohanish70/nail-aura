@@ -15,11 +15,21 @@ const Home = () => {
       {/* Header Section with Logo */}
       <header className="header">
         <div className="logo-container">
-          <Link to="/">
-            
-          </Link>
+          <img src={newimage} alt="Nail Aura Logo" className="logo" />
+          <h1 className="logo-text">Nail Aura</h1>
         </div>
-      
+        <nav className="navbar">
+          <ul className="nav-links">
+            <li><Link to="/shop">Shop</Link></li>
+            <li><Link to="/try-nails">Try Customizer</Link></li>
+            <li><Link to="/about">About Us</Link></li>
+            <li><Link to="/contact">Contact</Link></li>
+            <li><Link to="/cart">Cart</Link></li>
+            <li><Link to="/checkout">Checkout</Link></li>
+            <li><Link to="/admin">Admin</Link></li>
+            <li><Link to="/locations">Locations</Link></li>
+          </ul>
+        </nav>
       </header>
 
       {/* Hero Section */}
@@ -28,7 +38,6 @@ const Home = () => {
           <h1>Welcome to <span className="brand-name">Nail Aura</span></h1>
           <p>Your one-stop destination for custom press-on nails.</p>
           <p>Get trendy, high-quality nails delivered to your doorstep!</p>
-
           <p>Explore AI-powered custom press-on nails tailored just for you.</p>
           <div className="hero-buttons">
             <Link to="/shop" className="btn">Shop Now</Link>
@@ -36,13 +45,12 @@ const Home = () => {
           </div>
         </div>
         <div className="hero-image">
-          <img src={ctaimage} alt="Nail Art" />
+          <img src={ctaimage} alt="Custom Press-on Nail Preview" />
         </div>
       </section>
 
       {/* Features Section */}
       <section className="features-section">
-
         <h2>Why Nail Aura?</h2>
         <div className="features">
           <div className="feature">
@@ -59,9 +67,7 @@ const Home = () => {
             <img src={deliveryImage} alt="Fast Delivery" />
             <h3>🚚 48-Hour Delivery</h3>
             <p>Get your custom nails shipped fast — across all of India!</p>
-            
           </div>
-            
         </div>
       </section>
 
@@ -69,21 +75,21 @@ const Home = () => {
       <section className="collections-section">
         <h2>✨ Featured Collections</h2>
         <div className="collections">
-          <div className="collection-card">
-            <img src={featuredImage} alt="Classic" />
+          <article className="collection-card">
+            <img src={featuredImage} alt="Classic Elegance Nails" />
             <h4>Classic Elegance</h4>
             <Link to="/shop">Shop Classic</Link>
-          </div>
-          <div className="collection-card">
-            <img src={customImage} alt="Glam" />
+          </article>
+          <article className="collection-card">
+            <img src={customImage} alt="Glam Up Nails" />
             <h4>Glam Up</h4>
             <Link to="/shop">Shop Glam</Link>
-          </div>
-          <div className="collection-card">
-            <img src={newimage} alt="Seasonal" />
+          </article>
+          <article className="collection-card">
+            <img src={newimage} alt="Seasonal Trend Nails" />
             <h4>Seasonal Trends</h4>
             <Link to="/shop">Shop Trends</Link>
-          </div>
+          </article>
         </div>
       </section>
 
@@ -114,8 +120,12 @@ const Home = () => {
 
       {/* Footer Section */}
       <footer className="home-footer">
-        
-
+        <p>&copy; 2025 Nail Aura. All rights reserved.</p>
+        <ul>
+          <li><Link to="/privacy-policy">Privacy Policy</Link></li>
+          <li><Link to="/terms-of-service">Terms of Service</Link></li>
+          <li><Link to="/faq">FAQ</Link></li>
+        </ul>
       </footer>
     </div>
   );

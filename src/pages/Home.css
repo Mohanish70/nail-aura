@@ -1,10 +1,9 @@
-/* Home.css */
-
 /* Global Styles */
 body {
   font-family: 'Poppins', sans-serif;
   margin: 0;
   padding: 0;
+  background-color: #f9f9f9; /* Light background for the whole page */
 }
 
 .home-container {
@@ -20,6 +19,7 @@ body {
   align-items: center;
   padding: 20px;
   background-color: #fff;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Added shadow for depth */
 }
 
 .logo-container {
@@ -31,7 +31,7 @@ body {
 .logo {
   height: 50px;
   width: auto;
-  max-width: 100%; /* Ensures the logo scales properly */
+  max-width: 100%; /* Ensures logo scales properly */
 }
 
 .navbar ul {
@@ -44,10 +44,11 @@ body {
   text-decoration: none;
   color: #333;
   font-weight: bold;
+  transition: color 0.3s ease; /* Smooth color transition on hover */
 }
 
 .navbar ul li a:hover {
-  color: #007BFF;
+  color: #e91e63; /* Pink color on hover */
 }
 
 /* Hero Section */
@@ -57,8 +58,9 @@ body {
   align-items: center;
   justify-content: space-between;
   padding: 2rem 0;
-  background: linear-gradient(to right, #fce4ec, #f8bbd0);
+  background: linear-gradient(to right, #fce4ec, #f8bbd0); /* Soft pink gradient */
   border-radius: 12px;
+  margin-bottom: 4rem; /* Margin for spacing below */
 }
 
 .hero-text {
@@ -68,6 +70,13 @@ body {
 
 .hero-text h1 {
   font-size: 3rem;
+  color: #333;
+}
+
+.hero-text p {
+  font-size: 1.2rem;
+  color: #555;
+  margin-top: 10px;
 }
 
 .brand-name {
@@ -84,6 +93,7 @@ body {
   border-radius: 8px;
   text-decoration: none;
   font-weight: bold;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 .btn {
@@ -94,6 +104,15 @@ body {
 .btn-outline {
   border: 2px solid #e91e63;
   color: #e91e63;
+}
+
+.hero-buttons .btn:hover {
+  background-color: #c2185b; /* Darker pink on hover */
+}
+
+.hero-buttons .btn-outline:hover {
+  background-color: #e91e63;
+  color: white;
 }
 
 .hero-image img {
@@ -129,6 +148,13 @@ body {
 .feature h3 {
   font-size: 1.5rem;
   margin-top: 10px;
+  color: #333;
+}
+
+.feature p {
+  font-size: 1.1rem;
+  color: #555;
+  margin-top: 5px;
 }
 
 /* Collections Section */
@@ -148,17 +174,24 @@ body {
   text-align: center;
   border-radius: 8px;
   overflow: hidden;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease; /* Smooth transition on hover */
+}
+
+.collection-card:hover {
+  transform: translateY(-5px); /* Lift effect on hover */
 }
 
 .collection-card img {
   width: 100%;
   height: 180px;
   object-fit: cover;
+  border-bottom: 2px solid #fce4ec; /* Soft line under the image */
 }
 
 .collection-card h4 {
   margin-top: 10px;
+  color: #333;
 }
 
 .collection-card a {
@@ -167,6 +200,10 @@ body {
   font-weight: bold;
   margin-top: 10px;
   display: block;
+}
+
+.collection-card a:hover {
+  color: #e91e63; /* Pink color on hover */
 }
 
 /* Testimonials Section */
@@ -191,6 +228,7 @@ body {
 
 .testimonial p {
   font-style: italic;
+  color: #555;
 }
 
 /* Call to Action Section */
@@ -206,6 +244,11 @@ body {
   text-decoration: none;
   font-weight: bold;
   border-radius: 12px;
+  transition: background-color 0.3s ease;
+}
+
+.cta-section .btn-big:hover {
+  background-color: #c2185b; /* Darker pink on hover */
 }
 
 /* Footer Section */
@@ -215,8 +258,8 @@ body {
   margin-top: 2rem;
   color: #888;
 }
-/* Home.css */
 
+/* General Text Styles for paragraphs */
 .hero-text p,
 .feature p,
 .collection-card a,
@@ -230,12 +273,13 @@ body {
 /* Optional enhancement for paragraph emphasis */
 .hero-text p:nth-child(3) {
   font-weight: 500;
-  color: #c2185b;
+  color: #c2185b; /* Emphasizing specific text with a pink tone */
 }
+
 .features-section,
 .collections-section,
 .testimonials-section {
-  background-color: #fff8fb;
+  background-color: #fff8fb; /* Light pink background */
   padding: 3rem 1rem;
   border-radius: 12px;
   margin-top: 3rem;

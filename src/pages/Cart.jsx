@@ -4,15 +4,20 @@ import { CartContext } from '../context/CartContext';
 const Cart = () => {
   const { cart, removeFromCart, clearCart } = useContext(CartContext);
 
-  const total = cart.reduce((acc, item) => acc + item.price, 0);
+  // Total calculation (checking if price exists in the item)
+  const total = cart.reduce((acc, item) => (item.price ? acc + item.price : acc), 0);
 
   return (
     <div>
       <h2>Your Cart</h2>
+      <p>Items in your cart: {cart.length}</p>
+      <p>Click on the image to remove the item from the cart</p>
+      <p>Click on the clear cart button to clear the cart</p>
+      
       {cart.length ? (
         <div>
           {cart.map((item, index) => (
-            <div key={index} className="cart-item">
+            <div key={item.id || index} className="cart-item"> {/* Use item.id if available */}
               <img src={item.url} alt={item.name} style={{ width: 80 }} />
               <div>
                 <h4>{item.name}</h4>

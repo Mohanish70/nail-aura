@@ -1,53 +1,157 @@
+/* Navbar */
 .navbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 1rem 2rem;
-    background-color: #ffe6f0;
-    border-bottom: 2px solid #ffb3c6;
-  }
-  
-  .navbar-logo a {
-    font-size: 1.8rem;
-    font-weight: bold;
-    color: #e91e63;
-    text-decoration: none;
-  }
-  
-  .navbar-links {
-    list-style: none;
-    display: flex;
-    gap: 1rem;
-  }
-  
-  .navbar-links li a {
-    text-decoration: none;
-    color: #333;
-    font-weight: 500;
-  }
-  
-  .logout-btn {
-    background-color: #e91e63;
-    color: white;
-    padding: 6px 12px;
-    border: none;
-    border-radius: 6px;
-    cursor: pointer;
-  }
-  .navbar-logo {
-    display: flex;
-    align-items: center;
-    gap: 10px; /* Space between logo and brand name */
-  }
-  
-  .logo {
-    height: 40px; /* Adjust logo size as needed */
-    width: auto;
-  }
-  
-  .brand-name {
-    font-size: 1.8rem;
-    font-weight: bold;
-    color: #333;
-  }
-  
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #ffe6f0; /* Soft pink background */
+  padding: 1rem 2rem;
+  border-bottom: 2px solid #ffb3c6; /* Light pink border for separation */
+}
+
+.navbar-logo {
+  display: flex;
+  align-items: center;
+  gap: 10px; /* Space between logo and brand name */
+}
+
+.navbar-logo img {
+  height: 40px; /* Logo size */
+  width: auto;
+}
+
+.navbar-logo a {
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: #e91e63; /* Bold pink color for brand name */
+  text-decoration: none;
+}
+
+.navbar-links {
+  list-style: none;
+  display: flex;
+  gap: 1.5rem; /* Gap between links */
+}
+
+.navbar-links li a {
+  text-decoration: none;
+  color: #333; /* Dark color for text */
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.navbar-links li a:hover {
+  color: #e91e63; /* Hover effect for links */
+}
+
+/* Logout Button */
+.logout-btn {
+  background-color: #e91e63;
+  color: white;
+  padding: 6px 12px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 1rem;
+}
+
+.logout-btn:hover {
+  background-color: #c2185b; /* Darker shade on hover */
+}
+
+/* Hero Section */
+.hero-section {
+  display: flex;
+  justify-content: space-between;
+  padding: 50px 20px;
+  background-color: #f9f9f9; /* Light grey background */
+}
+
+.hero-text {
+  max-width: 50%;
+}
+
+.hero-text h1 {
+  font-size: 3rem;
+  color: #333;
+}
+
+.hero-text p {
+  font-size: 1.2rem;
+  color: #555;
+  line-height: 1.5;
+  margin-top: 10px;
+}
+
+.hero-buttons .btn,
+.hero-buttons .btn-outline {
+  padding: 15px 30px;
+  font-size: 1.2rem;
+  border-radius: 25px;
+  text-decoration: none;
+  margin-top: 20px;
+}
+
+.hero-buttons .btn {
+  background-color: #FF0066;
+  color: #fff;
+  margin-right: 10px;
+}
+
+.hero-buttons .btn-outline {
+  background-color: transparent;
+  border: 2px solid #FF0066;
+  color: #FF0066;
+}
+
+.hero-buttons .btn:hover,
+.hero-buttons .btn-outline:hover {
+  background-color: #ff80b3;
+  color: #fff;
+}
+
+/* Featured Collections */
+.collections-section {
+  padding: 30px 0;
+  background-color: #fff;
+  text-align: center;
+}
+
+.collections-section h2 {
+  font-size: 2rem;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.collection-card {
+  display: inline-block;
+  margin: 10px;
+  width: 250px;
+  text-align: center;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.collection-card img {
+  width: 100%;
+  height: 200px; /* Fixed height for images */
+  object-fit: cover; /* Ensures images are cropped correctly */
+}
+
+.collection-card h4 {
+  font-size: 1.5rem;
+  color: #333;
+  margin-top: 15px;
+}
+
+.collection-card a {
+  text-decoration: none;
+  color: #e91e63;
+  font-weight: bold;
+  margin-top: 10px;
+  display: inline-block;
+  font-size: 1rem;
+}
+
+.collection-card a:hover {
+  color: #c2185b;
+}

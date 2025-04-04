@@ -1,4 +1,5 @@
-import handTrack from 'handtrackjs'; // Import handtrack.js
+import * as handTrack from 'handtrackjs';
+
 import React, { useEffect, useRef, useState } from 'react';
 import Webcam from 'react-webcam';
 import './CameraCustomizer.css'; // Ensure you have the CSS file for styling

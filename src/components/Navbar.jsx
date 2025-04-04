@@ -3,8 +3,30 @@ import { Link } from 'react-router-dom';
 import logo from '../assets/nailauralogo.webp';
 import { useAuth } from '../context/AuthContext';
 import './Navbar.css';
+
 const Navbar = () => {
   const { user, logout } = useAuth();
+
+  const commonLinks = [
+    { to: '/', label: 'Home' },
+    { to: '/shop', label: 'Shop' },
+    { to: '/cart', label: 'Cart' },
+    { to: '/checkout', label: 'Checkout' },
+    { to: '/try-nails', label: 'Try Nails' },
+    { to: '/about', label: 'About' },
+    { to: '/contact', label: 'Contact' },
+  ];
+
+  const userLinks = [
+    { to: '/profile', label: 'Profile' },
+    { to: '/orders', label: 'Orders' },
+    { to: '/wishlist', label: 'Wishlist' },
+  ];
+
+  const guestLinks = [
+    { to: '/login', label: 'Login' },
+    { to: '/register', label: 'Register' },
+  ];
 
   return (
     <nav className="navbar">
@@ -13,22 +35,20 @@ const Navbar = () => {
         <img src={logo} alt="Nail Aura Logo" className="logo" />
       </div>
       <ul className="navbar-links">
-        <li><Link to="/">Home</Link></li>
-        <li><Link to="/shop">Shop</Link></li>
-        <li><Link to="/cart">Cart</Link></li>
-        <li><Link to="/checkout">Checkout</Link></li>
-        <li><Link to="/try-nails">Try Nails</Link></li>
-        {user?.isAdmin && <li><Link to="/admin">Admin</Link></li>}
-
-        {!user ? (
+        {commonLinks.map((link) => (
+          <li key={link.to}><Link to={link.to}>{link.label}</Link></li>
+        ))}
+        {user ? (
           <>
-            <li><Link to="/login">Login</Link></li>
-            <li><Link to="/register">Register</Link></li>
+            {userLinks.map((link) => (
+              <li key={link.to}><Link to={link.to}>{link.label}</Link></li>
+            ))}
+            <li><button onClick={logout} className="logout-btn">Logout</button></li>
           </>
         ) : (
-          <li>
-            <button onClick={logout} className="logout-btn">Logout</button>
-          </li>
+          guestLinks.map((link) => (
+            <li key={link.to}><Link to={link.to}>{link.label}</Link></li>
+          ))
         )}
       </ul>
     </nav>
