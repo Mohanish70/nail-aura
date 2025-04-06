@@ -29,10 +29,8 @@ const nailDesigns = [
 const CameraCustomizer = () => {
   const webcamRef = useRef(null);
   const [selectedDesign, setSelectedDesign] = useState(nailDesigns[0]);
-  const [handHeight, setHandHeight] = useState(0);
-  const [handWidth, setHandWidth] = useState(0);
-  const [model, setModel] = useState(null);
   const [hands, setHands] = useState([]);
+  const [model, setModel] = useState(null);
   const [designPosition, setDesignPosition] = useState({ top: 0, left: 0, size: 100, rotation: 0 });
   const [color, setColor] = useState('#FF0066');
   const [loading, setLoading] = useState(true);
@@ -58,7 +56,7 @@ const CameraCustomizer = () => {
   };
 
   useEffect(() => {
-    const interval = setInterval(detectHands, 500);
+    const interval = setInterval(detectHands, 100);  // Detect hands more frequently for real-time responsiveness
     return () => clearInterval(interval);
   }, [model]);
 
@@ -66,28 +64,26 @@ const CameraCustomizer = () => {
   const handleNailDesignPlacement = () => {
     if (hands.length > 0) {
       const hand = hands[0];
-      const fingerTip = hand.landmarks[8];  // Index finger tip
-      const wrist = hand.landmarks[0];     // Wrist
+      const fingerTips = [
+        hand.landmarks[4],  // Thumb tip
+        hand.landmarks[8],  // Index finger tip
+        hand.landmarks[12], // Middle finger tip
+        hand.landmarks[16], // Ring finger tip
+        hand.landmarks[20], // Pinky finger tip
+      ];
 
-      // Calculate position and rotation
-      const handWidth = Math.abs(fingerTip[0] - wrist[0]);
-      const handWidthRatio = handWidth / 100; // Adjust this ratio based on your design size
-      const handHeightRatio = handHeight / 100;
-      const handSize = Math.max(handWidthRatio, handHeightRatio) * 100;
-      const handHeight = Math.abs(fingerTip[1] - wrist[1]);
-      const angle = Math.atan2(fingerTip[1] - wrist[1], fingerTip[0] - wrist[0]) * (180 / Math.PI);
-      const designWidth = handWidth * 1.5; // Adjust this multiplier based on your design size
-      const designHeight = handHeight * 1.5;
-      const designWidthRatio = designWidth / 100;
-      const designHeightRatio = designHeight / 100;
-      const designSize = Math.max(designWidthRatio, designHeightRatio) * 100;
+      // Calculate average position of all finger tips
+      const avgX = fingerTips.reduce((acc, point) => acc + point[0], 0) / fingerTips.length;
+      const avgY = fingerTips.reduce((acc, point) => acc + point[1], 0) / fingerTips.length;
+
+      const handWidth = Math.abs(hand.landmarks[4][0] - hand.landmarks[0][0]);
+      const handHeight = Math.abs(hand.landmarks[8][1] - hand.landmarks[0][1]);
 
       setDesignPosition({
-        
-        top: (fingerTip[1] + wrist[1]) / 2,
-        left: (fingerTip[0] + wrist[0]) / 2,
-        size: handWidth * 1.5,
-        rotation: angle,
+        top: avgY,
+        left: avgX,
+        size: Math.max(handWidth, handHeight) * 1.5, // Scale size based on hand size
+        rotation: 0,  // Can be further customized for rotation
       });
     }
   };
@@ -96,35 +92,15 @@ const CameraCustomizer = () => {
     handleNailDesignPlacement();
   }, [hands]);
 
+  // Handle color change for the nail design
   const handleColorChange = (e) => {
-    if (e.target.value.startsWith('#')) {
-      setColor(e.target.value);
-    }
-    // If the color is in RGB format, convert it to HEX
-    else if (e.target.value.startsWith('rgb')) {
-      const rgb = e.target.value.match(/\d+/g);
-      const hex = `#${((1 << 24) + (parseInt(rgb[0]) << 16) + (parseInt(rgb[1]) << 8) + parseInt(rgb[2])).toString(16).slice(1)}`;
-      setColor(hex);
-    }
     setColor(e.target.value);
   };
 
+  // Handle design change
   const handleDesignChange = (design) => {
-    if (design === selectedDesign) {
-      setSelectedDesign(null);
-    } else {
-      setSelectedDesign(design);
-    } 
-    // Reset design position when changing design
-    setDesignPosition({ top: 0, left: 0, size: 100, rotation: 0 });
-    // Set the new design
-
     setSelectedDesign(design);
-    setDesignPosition({ ...designPosition, size: design.size });
-    // Set the new design
-    setDesignPosition({ ...designPosition, size: design.size });  
-  // Set the new design
-    setDesignPosition({ ...designPosition, size: design.size });
+    setDesignPosition({ ...designPosition, size: 100 });  // Reset size when changing design
   };
 
   const videoConstraints = {
@@ -141,12 +117,7 @@ const CameraCustomizer = () => {
     <div className="camera-customizer">
       <h1>Nail Design Customizer</h1>
       <p>Choose your nail design and color!</p>
-      <p>Adjust the design position and size using the sliders.</p>
       <p>Point your hand towards the camera to see the design applied!</p>
-      <p>Click on the design to select it.</p>
-      <p>Click on the color to change it.</p>
-      <p>Click on the sliders to adjust the design position and size.</p> 
-      <p>Click on the design to select it.</p>
       <h2>Try Nails Live!</h2>
 
       {loading ? (
@@ -221,7 +192,7 @@ const CameraCustomizer = () => {
               <p>Hand detected!</p>
             </div>
           )}
-          
+
           <img
             src={selectedDesign.src}
             alt="Nail Overlay"
