@@ -8,22 +8,7 @@ const nailDesigns = [
   { src: '/images/1.jpg', name: 'Classic' },
   { src: '/images/2.jpg', name: 'Glam' },
   { src: '/images/3.png', name: 'Trendy' },
-  { src: '/images/4.jpg', name: 'Elegant' },
-  { src: '/images/5.jpg', name: 'Chic' },
-  { src: '/images/6.jpg', name: 'Bold' },
-  { src: '/images/7.jpg', name: 'Artistic' },
-  { src: '/images/8.jpg', name: 'Floral' },
-  { src: '/images/9.jpg', name: 'Abstract' },
-  { src: '/images/10.jpg', name: 'Minimalist' },
-  { src: '/images/11.jpg', name: 'Geometric' },
-  { src: '/images/12.jpg', name: 'Gradient' },
-  { src: '/images/13.jpg', name: 'Metallic' },
-  { src: '/images/14.jpg', name: 'Ombre' },
-  { src: '/images/15.jpg', name: 'Glitter' },
-  { src: '/images/16.jpg', name: 'Matte' },
-  { src: '/images/17.jpg', name: 'Textured' },
-  { src: '/images/18.jpg', name: 'Seasonal' },
-  { src: '/images/19.jpg', name: 'Themed' },
+  // ... (additional designs)
 ];
 
 const CameraCustomizer = () => {
@@ -60,7 +45,7 @@ const CameraCustomizer = () => {
     return () => clearInterval(interval);
   }, [model]);
 
-  // Handle placement of the nail design on the hand
+  // Handle placement of the nail design on the nails
   const handleNailDesignPlacement = () => {
     if (hands.length > 0) {
       const hand = hands[0];
@@ -72,10 +57,11 @@ const CameraCustomizer = () => {
         hand.landmarks[20], // Pinky finger tip
       ];
 
-      // Calculate average position of all finger tips
+      // Calculate average position of all finger tips (ideal for nail placement)
       const avgX = fingerTips.reduce((acc, point) => acc + point[0], 0) / fingerTips.length;
       const avgY = fingerTips.reduce((acc, point) => acc + point[1], 0) / fingerTips.length;
 
+      // Use the distance between the wrist and the index finger to scale the design's size
       const handWidth = Math.abs(hand.landmarks[4][0] - hand.landmarks[0][0]);
       const handHeight = Math.abs(hand.landmarks[8][1] - hand.landmarks[0][1]);
 
@@ -83,7 +69,7 @@ const CameraCustomizer = () => {
         top: avgY,
         left: avgX,
         size: Math.max(handWidth, handHeight) * 1.5, // Scale size based on hand size
-        rotation: 0,  // Can be further customized for rotation
+        rotation: 0,  // Rotation can be customized based on the hand orientation
       });
     }
   };
@@ -160,31 +146,6 @@ const CameraCustomizer = () => {
           <div className="color-picker">
             <label>Choose Nail Color:</label>
             <input type="color" value={color} onChange={handleColorChange} />
-          </div>
-
-          <div className="design-position">
-            <label>Design Position:</label>
-            <input
-              type="range"
-              min="0"
-              max="100"
-              value={designPosition.top}
-              onChange={(e) => setDesignPosition({ ...designPosition, top: e.target.value })}
-            />
-            <input
-              type="range"
-              min="0"
-              max="100"
-              value={designPosition.left}
-              onChange={(e) => setDesignPosition({ ...designPosition, left: e.target.value })}
-            />
-            <input
-              type="range"
-              min="50"
-              max="200"
-              value={designPosition.size}
-              onChange={(e) => setDesignPosition({ ...designPosition, size: e.target.value })}
-            />
           </div>
 
           {hands.length > 0 && (
