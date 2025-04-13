@@ -1,0 +1,84 @@
+=/* Contact Page Styles */
+.contact-section {
+    padding: 4rem 2rem;
+    background-color: #f9f9f9;
+    text-align: center;
+  }
+  
+  .contact-container {
+    max-width: 600px;
+    margin: 0 auto;
+    background-color: #fff;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  }
+  
+  .contact-heading {
+    font-size: 2.5rem;
+    margin-bottom: 1.5rem;
+    color: #d81b60;
+  }
+  
+  .contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+  
+  .form-group {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .form-group label {
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+    color: #333;
+  }
+  
+  .form-group input,
+  .form-group textarea {
+    width: 100%;
+    padding: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 1rem;
+    color: #333;
+    transition: border 0.3s ease;
+  }
+  
+  .form-group input:focus,
+  .form-group textarea:focus {
+    border-color: #d81b60;
+    outline: none;
+  }
+  
+  .submit-btn {
+    background-color: #d81b60;
+    color: white;
+    padding: 1rem 2rem;
+    font-size: 1.1rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .submit-btn:hover {
+    background-color: #c2185b;
+  }
+  
+  .success-message {
+    color: #28a745;
+    font-size: 1.2rem;
+    margin-top: 1rem;
+  }
+  
+  .error-message {
+    color: #dc3545;
+    font-size: 1.2rem;
+    margin-top: 1rem;
+  }
+  

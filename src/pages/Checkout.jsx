@@ -4,12 +4,19 @@ import { CartContext } from '../context/CartContext';
 const Checkout = () => {
   const { cart, clearCart } = useContext(CartContext);
 
+
   const total = cart.reduce((acc, item) => acc + item.price, 0);
 
   const handleCheckout = () => {
+    if (!cart.length) {
+      alert('Your cart is empty!');
+      return;
+    }
     alert('Order placed successfully!');
     clearCart();
   };
+
+    
 
   return (
     <div>

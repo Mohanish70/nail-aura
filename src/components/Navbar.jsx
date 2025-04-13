@@ -27,7 +27,7 @@ const Navbar = () => {
     { to: '/login', label: 'Login' },
     { to: '/register', label: 'Register' },
   ];
-
+<li><Link to="/contact">Contact</Link></li>
   return (
     <nav className="navbar">
       <div className="navbar-logo">
